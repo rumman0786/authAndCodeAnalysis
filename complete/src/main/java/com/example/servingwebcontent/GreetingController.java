@@ -30,6 +30,11 @@ public class GreetingController {
 		return "greeting";
 	}
 
+	@GetMapping("/login")
+	public String loginForm() {
+		return "login";
+	}
+
 	@GetMapping("/register")
 	public String register(Model model) {
 		model.addAttribute("user", new UserDto());

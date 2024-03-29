@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
 //import static org.springframework.security.config.Customizer.withDefaults;
 
 /**
- * @author rumman
+ * @author ishrat.jahan
  * @since 03/28,2024
  */
 //@Configuration

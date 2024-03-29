@@ -1,7 +1,7 @@
 package com.example.dto;
 
 /**
- * @author rumman
+ * @author ishrat.jahan
  * @since 03/28,2024
  */
 public class UserDto

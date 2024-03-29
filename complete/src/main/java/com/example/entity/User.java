@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author rumman
+ * @author ishrat.jahan
  * @since 03/28,2024
  */
 @Entity

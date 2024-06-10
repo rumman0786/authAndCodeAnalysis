@@ -1,6 +1,7 @@
 package com.example.servingwebcontent;
 
 import com.example.dto.SonarProject;
+import com.example.service.SonarScannerService;
 import com.example.util.Url;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -43,6 +44,9 @@ public class SonarController {
 
 	@Autowired
 	private RestTemplate restTemplate;
+
+	@Autowired
+	private SonarScannerService scannerService;
 
 	@GetMapping("/project")
 	public String show(Model model, HttpServletRequest request) {
@@ -98,6 +102,18 @@ public class SonarController {
 		System.out.println(response.getBody());
 
 		return REDIRECT_URL_PREFIX + "/projectList";
+	}
+
+	@GetMapping("/runScanner")
+	public String runScanner(HttpServletRequest request) {
+
+		if (!isUserLoggedIn(request.getSession(false))) {
+			return "redirect:/login";
+		}
+
+		scannerService.runSonarScannerAsync("SimpleSpringBoot", "/Users/rumman/projects/therap/gs-serving-web-content/complete");
+
+		return "sonarProject";
 	}
 
 //	@GetMapping("/files/{filename:.+}")
